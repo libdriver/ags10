@@ -75,12 +75,17 @@
  */
 static uint8_t a_ags10_iic_read(ags10_handle_t *handle, uint8_t reg, uint8_t *data, uint16_t len)
 {
-    if (handle->iic_read(handle->iic_addr, reg, data, len) != 0)        /* read the register */
+    if (handle->iic_write_cmd(handle->iic_addr, &reg, 1) != 0)         /* write the register */
     {
-        return 1;                                                       /* return error */
+        return 1;                                                      /* return error */
     }
-
-    return 0;                                                           /* success return 0 */
+    handle->delay_ms(30);                                              /* delay 30ms */
+    if (handle->iic_read_cmd(handle->iic_addr, data, len) != 0)        /* read the register */
+    {
+        return 1;                                                      /* return error */
+    }
+    
+    return 0;                                                          /* success return 0 */
 }
 
 /**
@@ -168,9 +173,15 @@ uint8_t ags10_init(ags10_handle_t *handle)
 
         return 3;                                                      /* return error */
     }
-    if (handle->iic_read == NULL)                                      /* check iic_read */
+    if (handle->iic_read_cmd == NULL)                                  /* check iic_read_cmd */
     {
-        handle->debug_print("ags10: iic_read is null.\n");             /* iic_read is null */
+        handle->debug_print("ags10: iic_read_cmd is null.\n");         /* iic_read_cmd is null */
+
+        return 3;                                                      /* return error */
+    }
+    if (handle->iic_write_cmd == NULL)                                 /* check iic_write_cmd */
+    {
+        handle->debug_print("ags10: iic_write_cmd is null.\n");        /* iic_write_cmd is null */
 
         return 3;                                                      /* return error */
     }
@@ -375,6 +386,7 @@ uint8_t ags10_zero_point_calibration(ags10_handle_t *handle, uint16_t raw)
 
         return 1;                                                          /* return error */
     }
+    handle->delay_ms(30);                                                  /* delay 30ms */
 
     return 0;                                                              /* success return 0 */
 }
@@ -415,6 +427,7 @@ uint8_t ags10_reset_zero_point_calibration(ags10_handle_t *handle)
 
         return 1;                                                          /* return error */
     }
+    handle->delay_ms(30);                                                  /* delay 30ms */
 
     return 0;                                                              /* success return 0 */
 }
@@ -455,6 +468,7 @@ uint8_t ags10_current_resistance_zero_point_calibration(ags10_handle_t *handle)
 
         return 1;                                                          /* return error */
     }
+    handle->delay_ms(30);                                                  /* delay 30ms */
 
     return 0;                                                              /* success return 0 */
 }
@@ -548,6 +562,7 @@ uint8_t ags10_get_version(ags10_handle_t *handle, uint8_t *version)
         return 4;                                                     /* return error */
     }
     *version = buf[3];                                                /* set version */
+    handle->delay_ms(30);                                             /* delay 30ms */
 
     return 0;                                                         /* success return 0 */
 }
@@ -590,7 +605,8 @@ uint8_t ags10_modify_slave_address(ags10_handle_t *handle, uint8_t addr_7bit)
         return 1;                                                            /* return error */
     }
     handle->iic_addr = addr_7bit << 1;                                       /* set new address */
-
+    handle->delay_ms(30);                                                    /* delay 30ms */
+    
     return 0;                                                                /* success return 0 */
 }
 

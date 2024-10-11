@@ -102,8 +102,10 @@ Data Fields</h2></td></tr>
 <tr class="separator:a8826dd07625f8d90859ce9bd09628d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6963bbad902ca6e43942b48c07986c3"><td class="memItemLeft" align="right" valign="top">uint8_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#af6963bbad902ca6e43942b48c07986c3">iic_deinit</a> )(void)</td></tr>
 <tr class="separator:af6963bbad902ca6e43942b48c07986c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4ef726288b88f51a846483803a1249b"><td class="memItemLeft" align="right" valign="top">uint8_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#af4ef726288b88f51a846483803a1249b">iic_read</a> )(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
-<tr class="separator:af4ef726288b88f51a846483803a1249b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acebeabb312305acedcb64f4f10755117"><td class="memItemLeft" align="right" valign="top">uint8_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#acebeabb312305acedcb64f4f10755117">iic_read_cmd</a> )(uint8_t addr, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="separator:acebeabb312305acedcb64f4f10755117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cb104d353f0c18dbb0fd01405f4889"><td class="memItemLeft" align="right" valign="top">uint8_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#af9cb104d353f0c18dbb0fd01405f4889">iic_write_cmd</a> )(uint8_t addr, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="separator:af9cb104d353f0c18dbb0fd01405f4889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adca3ee7a793bbf510d5267daf0fcf1c5"><td class="memItemLeft" align="right" valign="top">uint8_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5">iic_write</a> )(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
 <tr class="separator:adca3ee7a793bbf510d5267daf0fcf1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a406c9433252b7366de417b7a60915c81"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structags10__handle__s.html#a406c9433252b7366de417b7a60915c81">delay_ms</a> )(uint32_t ms)</td></tr>
@@ -133,7 +135,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>point to a debug_print function address </p>
 
-<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00069">69</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00070">70</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
 
 </div>
 </div>
@@ -150,7 +152,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>point to a delay_ms function address </p>
 
-<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00068">68</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00069">69</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
 
 </div>
 </div>
@@ -167,7 +169,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>iic address </p>
 
-<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00071">71</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00072">72</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
 
 </div>
 </div>
@@ -205,14 +207,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="af4ef726288b88f51a846483803a1249b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4ef726288b88f51a846483803a1249b">&#9670;&nbsp;</a></span>iic_read</h2>
+<a id="acebeabb312305acedcb64f4f10755117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acebeabb312305acedcb64f4f10755117">&#9670;&nbsp;</a></span>iic_read_cmd</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t(* iic_read) (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td>
+          <td class="memname">uint8_t(* iic_read_cmd) (uint8_t addr, uint8_t *buf, uint16_t len)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -230,6 +232,23 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">uint8_t(* iic_write) (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>point to an iic_write function address </p>
+
+<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00068">68</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
+
+</div>
+</div>
+<a id="af9cb104d353f0c18dbb0fd01405f4889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9cb104d353f0c18dbb0fd01405f4889">&#9670;&nbsp;</a></span>iic_write_cmd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t(* iic_write_cmd) (uint8_t addr, uint8_t *buf, uint16_t len)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -252,7 +271,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>inited flag </p>
 
-<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00070">70</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__ags10_8h_source.html#l00071">71</a> of file <a class="el" href="driver__ags10_8h_source.html">driver_ags10.h</a>.</p>
 
 </div>
 </div>

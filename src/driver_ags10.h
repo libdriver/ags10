@@ -63,8 +63,9 @@ typedef struct ags10_handle_s
 {
     uint8_t (*iic_init)(void);                                                          /**< point to an iic_init function address */
     uint8_t (*iic_deinit)(void);                                                        /**< point to an iic_deinit function address */
-    uint8_t (*iic_read)(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);         /**< point to an iic_read_cmd function address */
-    uint8_t (*iic_write)(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);        /**< point to an iic_write_cmd function address */
+    uint8_t (*iic_read_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);                  /**< point to an iic_read_cmd function address */
+    uint8_t (*iic_write_cmd)(uint8_t addr, uint8_t *buf, uint16_t len);                 /**< point to an iic_write_cmd function address */
+    uint8_t (*iic_write)(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);        /**< point to an iic_write function address */
     void (*delay_ms)(uint32_t ms);                                                      /**< point to a delay_ms function address */
     void (*debug_print)(const char *const fmt, ...);                                    /**< point to a debug_print function address */
     uint8_t inited;                                                                     /**< inited flag */
@@ -123,12 +124,20 @@ typedef struct ags10_info_s
 #define DRIVER_AGS10_LINK_IIC_DEINIT(HANDLE, FUC)      (HANDLE)->iic_deinit = FUC
 
 /**
- * @brief     link iic_read function
+ * @brief     link iic_read_cmd function
  * @param[in] HANDLE points to an ags10 handle structure
- * @param[in] FUC points to an iic_read function address
+ * @param[in] FUC points to an iic_read_cmd function address
  * @note      none
  */
-#define DRIVER_AGS10_LINK_IIC_READ(HANDLE, FUC)        (HANDLE)->iic_read = FUC
+#define DRIVER_AGS10_LINK_IIC_READ_CMD(HANDLE, FUC)    (HANDLE)->iic_read_cmd = FUC
+
+/**
+ * @brief     link iic_write_cmd function
+ * @param[in] HANDLE points to an ags10 handle structure
+ * @param[in] FUC points to an iic_write_cmd function address
+ * @note      none
+ */
+#define DRIVER_AGS10_LINK_IIC_WRITE_CMD(HANDLE, FUC)   (HANDLE)->iic_write_cmd = FUC
 
 /**
  * @brief     link iic_write function

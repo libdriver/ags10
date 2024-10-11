@@ -65,9 +65,8 @@ uint8_t ags10_interface_iic_deinit(void)
 }
 
 /**
- * @brief      interface iic bus read
+ * @brief      interface iic bus read command
  * @param[in]  addr is the iic device write address
- * @param[in]  reg is the register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the length of the data buffer
  * @return     status code
@@ -75,9 +74,24 @@ uint8_t ags10_interface_iic_deinit(void)
  *             - 1 read failed
  * @note       none
  */
-uint8_t ags10_interface_iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)
+uint8_t ags10_interface_iic_read_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
 {
-    return iic_read(addr, reg, buf, len);
+    return iic_read_cmd(addr, buf, len);
+}
+
+/**
+ * @brief     interface iic bus write command
+ * @param[in] addr is the iic device write address
+ * @param[in] *buf points to a data buffer
+ * @param[in] len is the length of the data buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 write failed
+ * @note      none
+ */
+uint8_t ags10_interface_iic_write_cmd(uint8_t addr, uint8_t *buf, uint16_t len)
+{
+    return iic_write_cmd(addr, buf, len);
 }
 
 /**
