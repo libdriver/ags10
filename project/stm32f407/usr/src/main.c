@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2015 - present LibDriver All rights reserved
- * 
+ *
  * The MIT License (MIT)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,7 +19,7 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE. 
+ * SOFTWARE.
  *
  * @file      main.c
  * @brief     main source file
@@ -76,23 +76,23 @@ uint8_t ags10(uint8_t argc, char **argv)
     };
     char type[33] = "unknown";
     uint32_t times = 3;
-    
+
     /* if no params */
     if (argc == 1)
     {
         /* goto the help */
         goto help;
     }
-    
+
     /* init 0 */
     optind = 0;
-    
+
     /* parse */
     do
     {
         /* parse the args */
         c = getopt_long(argc, argv, short_options, long_options, &longindex);
-        
+
         /* judge the result */
         switch (c)
         {
@@ -102,65 +102,65 @@ uint8_t ags10(uint8_t argc, char **argv)
                 /* set the type */
                 memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "h");
-                
+
                 break;
             }
-            
+
             /* information */
             case 'i' :
             {
                 /* set the type */
                 memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "i");
-                
+
                 break;
             }
-            
+
             /* port */
             case 'p' :
             {
                 /* set the type */
                 memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "p");
-                
+
                 break;
             }
-            
+
             /* example */
             case 'e' :
             {
                 /* set the type */
                 memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "e_%s", optarg);
-                
+
                 break;
             }
-            
+
             /* test */
             case 't' :
             {
                 /* set the type */
                 memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "t_%s", optarg);
-                
+
                 break;
             }
-            
+
             /* running times */
             case 1 :
             {
                 /* set the times */
                 times = atol(optarg);
-                
+
                 break;
-            } 
-            
+            }
+
             /* the end */
             case -1 :
             {
                 break;
             }
-            
+
             /* others */
             default :
             {
@@ -187,37 +187,37 @@ uint8_t ags10(uint8_t argc, char **argv)
         uint8_t res;
         uint32_t i;
         uint32_t ppb;
-        
+
         /* basic init */
         res = ags10_basic_init();
         if (res != 0)
         {
             return 1;
         }
-        
+
         /* loop */
         for (i = 0; i < times; i++)
         {
             /* delay 2000ms */
             ags10_interface_delay_ms(2000);
-            
+
             /* read data */
             res = ags10_basic_read((uint32_t *)&ppb);
             if (res != 0)
             {
                 (void)ags10_basic_deinit();
-                
+
                 return 1;
             }
-            
+
             /* output */
             ags10_interface_debug_print("ags10: %d/%d.\n", (uint32_t)(i + 1), (uint32_t)times);
             ags10_interface_debug_print("ags10: tvoc is %dppb.\n", ppb);
         }
-        
+
         /* deinit */
         (void)ags10_basic_deinit();
-        
+
         return 0;
     }
     else if (strcmp("h", type) == 0)
@@ -237,13 +237,13 @@ uint8_t ags10(uint8_t argc, char **argv)
         ags10_interface_debug_print("  -p, --port                     Display the pin connections of the current board.\n");
         ags10_interface_debug_print("  -t <read>, --test=<read>       Run the driver test.\n");
         ags10_interface_debug_print("      --times=<num>              Set the running times.([default: 3])\n");
-        
+
         return 0;
     }
     else if (strcmp("i", type) == 0)
     {
         ags10_info_t info;
-        
+
         /* print ags10 information */
         ags10_info(&info);
         ags10_interface_debug_print("ags10: chip is %s.\n", info.chip_name);
@@ -255,7 +255,7 @@ uint8_t ags10(uint8_t argc, char **argv)
         ags10_interface_debug_print("ags10: max current is %0.2fmA.\n", info.max_current_ma);
         ags10_interface_debug_print("ags10: max temperature is %0.1fC.\n", info.temperature_max);
         ags10_interface_debug_print("ags10: min temperature is %0.1fC.\n", info.temperature_min);
-        
+
         return 0;
     }
     else if (strcmp("p", type) == 0)
@@ -263,7 +263,7 @@ uint8_t ags10(uint8_t argc, char **argv)
         /* print pin connection */
         ags10_interface_debug_print("ags10: SCL connected to GPIOB PIN8.\n");
         ags10_interface_debug_print("ags10: SDA connected to GPIOB PIN9.\n");
-        
+
         return 0;
     }
     else
@@ -279,21 +279,21 @@ uint8_t ags10(uint8_t argc, char **argv)
 int main(void)
 {
     uint8_t res;
-    
+
     /* stm32f407 clock init and hal init */
     clock_init();
-    
+
     /* delay init */
     delay_init();
-    
+
     /* uart init */
     uart_init(115200);
-    
+
     /* shell init && register ags10 function */
     shell_init();
     shell_register("ags10", ags10);
     uart_print("ags10: welcome to libdriver ags10.\n");
-    
+
     while (1)
     {
         /* read uart */

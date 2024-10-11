@@ -63,7 +63,8 @@ uint8_t ags10_read_test(uint32_t times)
     DRIVER_AGS10_LINK_INIT(&gs_handle, ags10_handle_t);
     DRIVER_AGS10_LINK_IIC_INIT(&gs_handle, ags10_interface_iic_init);
     DRIVER_AGS10_LINK_IIC_DEINIT(&gs_handle, ags10_interface_iic_deinit);
-    DRIVER_AGS10_LINK_IIC_READ(&gs_handle, ags10_interface_iic_read);
+    DRIVER_AGS10_LINK_IIC_READ_CMD(&gs_handle, ags10_interface_iic_read_cmd);
+    DRIVER_AGS10_LINK_IIC_WRITE_CMD(&gs_handle, ags10_interface_iic_write_cmd);
     DRIVER_AGS10_LINK_IIC_WRITE(&gs_handle, ags10_interface_iic_write);
     DRIVER_AGS10_LINK_DELAY_MS(&gs_handle, ags10_interface_delay_ms);
     DRIVER_AGS10_LINK_DEBUG_PRINT(&gs_handle, ags10_interface_debug_print);
@@ -148,6 +149,9 @@ uint8_t ags10_read_test(uint32_t times)
     
     /* print result */
     ags10_interface_debug_print("ags10: resistance is %0.2fohm.\n", ohm);
+    
+    /* delay 2000 ms for read */
+    ags10_interface_delay_ms(2000);
     
     reg = rand() % 0xFFFFU;
     res = ags10_zero_point_calibration(&gs_handle, reg);

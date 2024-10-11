@@ -53,7 +53,8 @@ uint8_t ags10_basic_init(void)
     DRIVER_AGS10_LINK_INIT(&gs_handle, ags10_handle_t);
     DRIVER_AGS10_LINK_IIC_INIT(&gs_handle, ags10_interface_iic_init);
     DRIVER_AGS10_LINK_IIC_DEINIT(&gs_handle, ags10_interface_iic_deinit);
-    DRIVER_AGS10_LINK_IIC_READ(&gs_handle, ags10_interface_iic_read);
+    DRIVER_AGS10_LINK_IIC_READ_CMD(&gs_handle, ags10_interface_iic_read_cmd);
+    DRIVER_AGS10_LINK_IIC_WRITE_CMD(&gs_handle, ags10_interface_iic_write_cmd);
     DRIVER_AGS10_LINK_IIC_WRITE(&gs_handle, ags10_interface_iic_write);
     DRIVER_AGS10_LINK_DELAY_MS(&gs_handle, ags10_interface_delay_ms);
     DRIVER_AGS10_LINK_DEBUG_PRINT(&gs_handle, ags10_interface_debug_print);
