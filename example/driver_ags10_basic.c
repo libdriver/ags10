@@ -83,7 +83,7 @@ uint8_t ags10_basic_read(uint32_t *ppb)
 {
     uint32_t raw;
    
-    /* read temperature and humidity */
+    /* read tvoc */
     if (ags10_read_tvoc(&gs_handle, (uint32_t *)&raw, (uint32_t *)ppb) != 0)
     {
         return 1;
