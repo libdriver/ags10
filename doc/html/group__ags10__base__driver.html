@@ -208,7 +208,7 @@ Functions</h2></td></tr>
 <p>zero point calibration using current resistance </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,7 +244,7 @@ Functions</h2></td></tr>
 <p>close the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -296,9 +296,9 @@ Functions</h2></td></tr>
 <p>get resistance </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>points to a raw data buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*ohm</td><td>points to a converted data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>pointer to a raw data buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*ohm</td><td>pointer to a converted data buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -345,8 +345,8 @@ Functions</h2></td></tr>
 <p>get slave address </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*addr</td><td>points to a slave address buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*addr</td><td>pointer to a slave address buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -391,8 +391,8 @@ Functions</h2></td></tr>
 <p>get version </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*version</td><td>points to a version buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*version</td><td>pointer to a version buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -429,7 +429,7 @@ Functions</h2></td></tr>
 <p>get chip's information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>points to an ags10 info structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>pointer to an ags10 info structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -463,7 +463,7 @@ Functions</h2></td></tr>
 <p>initialize the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -509,8 +509,8 @@ Functions</h2></td></tr>
 <p>modify slave address </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr_7bit</td><td>is the new slave address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr_7bit</td><td>new slave address </td></tr>
   </table>
   </dd>
 </dl>
@@ -562,9 +562,9 @@ Functions</h2></td></tr>
 <p>read tvoc </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>points to a raw data buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*ppb</td><td>points to a converted data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*raw</td><td>pointer to a raw data buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*ppb</td><td>pointer to a converted data buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -602,7 +602,7 @@ Functions</h2></td></tr>
 <p>reset zero point calibration </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -648,8 +648,8 @@ Functions</h2></td></tr>
 <p>set slave address </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the slave address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>slave address </td></tr>
   </table>
   </dd>
 </dl>
@@ -694,8 +694,8 @@ Functions</h2></td></tr>
 <p>zero point calibration </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an ags10 handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">raw</td><td>is the set raw data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to an ags10 handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">raw</td><td>raw data </td></tr>
   </table>
   </dd>
 </dl>
