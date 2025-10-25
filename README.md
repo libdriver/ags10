@@ -10,7 +10,7 @@
 
 AGS10 is a high-performance TVOC sensor which is equipped with a dedicated ASIC chip, adopting special digital module acquisition technology and gas sensing technology, to ensure good performance of high reliability, long-term stability, low power consumption, high sensitivity. Output signal of AGS10 is standard I²C. Each sensor is fully calibrated and tested before delivery to meet the large-scale applications of customers.
 
-LibDriver AGS10 is a full-featured driver of AGS10 launched by LibDriver.It provides the function of reading TVOC, etc. LibDriver is MISRA compliant.
+LibDriver AGS10 is a full-featured driver for AGS10, launched by LibDriver.It provides TVOC reading and additional features. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
