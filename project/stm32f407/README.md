@@ -81,7 +81,7 @@ ags10: interface is IIC.
 ags10: driver version is 1.0.
 ags10: min supply voltage is 2.9V.
 ags10: max supply voltage is 3.1V.
-ags10: max current is 25.00mA.
+ags10: max current is 33.00mA.
 ags10: max temperature is 85.0C.
 ags10: min temperature is -40.0C.
 ```

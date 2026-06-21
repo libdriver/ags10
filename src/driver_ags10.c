@@ -43,7 +43,7 @@
 #define MANUFACTURER_NAME         "ASAIR"              /**< manufacturer name */
 #define SUPPLY_VOLTAGE_MIN        2.9f                 /**< chip min supply voltage */
 #define SUPPLY_VOLTAGE_MAX        3.1f                 /**< chip max supply voltage */
-#define MAX_CURRENT               25.0f                /**< chip max current */
+#define MAX_CURRENT               33.0f                /**< chip max current */
 #define TEMPERATURE_MIN           -40.0f               /**< chip min operating temperature */
 #define TEMPERATURE_MAX           85.0f                /**< chip max operating temperature */
 #define DRIVER_VERSION            1000                 /**< driver version */
